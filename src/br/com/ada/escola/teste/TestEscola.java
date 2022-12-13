@@ -12,7 +12,7 @@ public class TestEscola {
         System.out.println("|------------Inicializando as atividades escolares------------|");
 
         // Endereço genérico para testes
-        Endereco enderecoGenerico = new Endereco("Rua Genérica", 3, "700000000", "Generico", "MG");
+        Endereco enderecoGenerico = new Endereco("Rua Genérica", 3, "MG");
 
         //Instanciando classes
         //Professor
@@ -20,16 +20,11 @@ public class TestEscola {
         Professor maria = new Professor("Maria", 22, "777.777", "856.789.023-33", enderecoGenerico);
         Professor lucia = new Professor("Lucia", 25, "444.444", "789.455.611-11", enderecoGenerico);
 
-        //Tutor
-        Tutor henrique = new Tutor("Henrique", 21, "777.777", "888.888.555-55", enderecoGenerico);
-        Tutor karina = new Tutor("Karina", 19, "999.999", "789.258.951-31", enderecoGenerico);
-        Tutor jussara = new Tutor("Jussara", 23, "988.999", "888.258.951-22", enderecoGenerico);
 
         //Pai
-        Endereco enderecoMiguel = new Endereco("Rua Laranja", 25, "70882233", "Laranja", "MG");
-        PaiOuResponsavel miguel = new PaiOuResponsavel("Miguel Carlos", 45, "255.555", "888.888.888-88", enderecoMiguel,
-                "Farmacêutico", "(11) 98888-8888");
-        PaiOuResponsavel ana = new PaiOuResponsavel("Ana Maria", 50, "789.987", "159.753.789-65", enderecoGenerico, "Médica", "(31) 98453-5678");
+        Endereco enderecoMiguel = new Endereco("Rua Laranja", 25, "MG");
+        PaiOuResponsavel miguel = new PaiOuResponsavel("Miguel Carlos", 45, "255.555", "888.888.888-88", enderecoMiguel);
+        PaiOuResponsavel ana = new PaiOuResponsavel("Ana Maria", 50, "789.987", "159.753.789-65", enderecoGenerico);
 
 
         //Aluno
@@ -48,10 +43,6 @@ public class TestEscola {
         recursosHumanos.contratarProfessor(Disciplina.CIENCIAS, 5000.00, maria);
         recursosHumanos.contratarProfessor(Disciplina.ARTES, 5000.00, lucia);
 
-        //Contratações de tutores
-        recursosHumanos.contrataTutor(henrique, 3000.00);
-        recursosHumanos.contrataTutor(karina, 3000.00);
-        recursosHumanos.contrataTutor(jussara, 3000.00);
 
         //Dar aumento professor
         recursosHumanos.darAumentoProfessor(lucia, 100.00);
@@ -65,13 +56,6 @@ public class TestEscola {
         secretaria.cadastro.matricularAlunos(joana, 566);
         secretaria.cadastro.matricularAlunos(larissa, 567);
 
-        //Desligamento Funcionário
-        maria.pedirDesligamento(maria);
-        jussara.pedirDesligamento(jussara);
-
-        //Funcionário - consultar salário
-        lucia.consultarSalario(lucia);
-        jussara.consultarSalario(jussara);
 
         //Mostrar lista com matriculas e cadastros
         TodosCadastros todosCadastros = new TodosCadastros();
@@ -82,11 +66,6 @@ public class TestEscola {
         System.out.println("|-----------------------------------------|");
         System.out.println(" ");
 
-        //Lista de tutores contratados
-        System.out.println("|------Tutores com contrato ativo---------|");
-        todosCadastros.mostrarLista(Rh.tutoresContratados);
-        System.out.println("|-----------------------------------------|");
-        System.out.println(" ");
 
         //Lista de alunos matriculados
         System.out.println("|----------Alunos matriculados------------|");
@@ -105,23 +84,13 @@ public class TestEscola {
         lucas.lancarNota(larissa, 7.0);
         lucas.lancarNota(joana, 9.0);
 
-        //Dar advertencia
-        lucia.darAdvertencia(larissa);
-
-        //ligando para o pai
-        secretaria.ligarPaiOuResposanvel(larissa);
 
         //Ajudando o aluno
-        karina.ajudarAluno(larissa);
+        //karina.ajudarAluno(larissa);
 
         //Verificando se os alunos foram aprovados, e se foram, mudando o status para aprovado
         lucas.aprovarAluno(joao);
         lucas.aprovarAluno(larissa);
         lucas.aprovarAluno(joana);
-
-        //Verificando se os alunos foram aprovados e emitindo o diploma
-        secretaria.emitirDiploma(joao);
-        secretaria.emitirDiploma(larissa);
-        secretaria.emitirDiploma(joana);
     }
 }

@@ -3,9 +3,12 @@ package br.com.ada.escola.modelo;
 import br.com.ada.escola.businessobject.Rh;
 import br.com.ada.escola.enumeracao.Disciplina;
 
-public class Professor extends Pessoa implements FuncoesFuncionario, Funcionario {
+import java.time.LocalDateTime;
+
+public class Professor extends Pessoa implements FuncoesFuncionario {
     private Double salario;
     private Disciplina disciplina;
+    private LocalDateTime dataHora;
 
     public Professor(String nome, int idade, String rg, String cpf, Endereco endereco) {
         super(nome, idade, rg, cpf, endereco);
@@ -28,11 +31,6 @@ public class Professor extends Pessoa implements FuncoesFuncionario, Funcionario
     }
 
 
-    @Override
-    public void darAdvertencia(Aluno aluno) {
-        System.out.println("Aluno(a) " + aluno.getNome() + " recebeu uma advertência.");
-        System.out.println(" ");
-    }
 
     @Override
     public void lancarNota(Aluno aluno, Double nota) {
@@ -52,16 +50,8 @@ public class Professor extends Pessoa implements FuncoesFuncionario, Funcionario
         }
     }
 
-    @Override
-    public void consultarSalario(Funcionario funcionario) {
-        System.out.println("O salário do(a) funcionário(a) " + this.getNome() + " é R$" + this.getSalario());
-    }
-
-    @Override
-    public void pedirDesligamento(Funcionario funcionario) {
-        System.out.println("Eu, professor(a), " + this.getNome() + " estou pedindo desligamento da escola.");
-        Rh.professoresContratados.remove(funcionario);
-        this.setSalario(0.0);
+    public void ajudarAluno(Aluno aluno, LocalDateTime dataHora) {
+        System.out.println("Marcando monitoria com o(a) aluno(a) " + aluno.getNome() + " para " + dataHora );
     }
 }
 
