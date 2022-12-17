@@ -1,17 +1,25 @@
 package br.com.ada.escola.modelo;
 
-import br.com.ada.escola.businessobject.Rh;
 import br.com.ada.escola.enumeracao.Disciplina;
+import br.com.ada.escola.teste.GerenteBancoDeDadosProfessor;
 
 import java.time.LocalDateTime;
 
 public class Professor extends Pessoa implements FuncoesFuncionario {
+
+
+    private GerenteBancoDeDadosProfessor gerenteBancoDeDados;
+
+    public Professor(GerenteBancoDeDadosProfessor gerenteBancoDeDados) {
+        this.gerenteBancoDeDados = gerenteBancoDeDados;
+    }
+
     private Double salario;
     private Disciplina disciplina;
     private LocalDateTime dataHora;
 
-    public Professor(String nome, int idade, String rg, String cpf, Endereco endereco) {
-        super(nome, idade, rg, cpf, endereco);
+    public Professor(String nome, int idade, String rg, String cpf) {
+        super(nome, idade, rg, cpf);
     }
 
     public Double getSalario() {
@@ -29,7 +37,6 @@ public class Professor extends Pessoa implements FuncoesFuncionario {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
-
 
 
     @Override
@@ -51,7 +58,7 @@ public class Professor extends Pessoa implements FuncoesFuncionario {
     }
 
     public void ajudarAluno(Aluno aluno, LocalDateTime dataHora) {
-        System.out.println("Marcando monitoria com o(a) aluno(a) " + aluno.getNome() + " para " + dataHora );
+        System.out.println("Marcando monitoria com o(a) aluno(a) " + aluno.getNome() + " para " + dataHora);
     }
 }
 

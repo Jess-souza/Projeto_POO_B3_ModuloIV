@@ -1,21 +1,23 @@
 package br.com.ada.escola.modelo;
 
-public abstract class Pessoa {
+import java.io.Serializable;
+
+public abstract class Pessoa implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private int idade;
     private String rg;
     private String cpf;
-    private Endereco endereco;
 
-    public Pessoa(String nome, int idade, String rg, String cpf, Endereco endereco) {
+    public Pessoa(String nome, int idade, String rg, String cpf) {
         this.nome = nome;
         this.idade = idade;
         this.rg = rg;
         this.cpf = cpf;
-        this.endereco = endereco;
     }
 
-    public Pessoa(){}
+    public Pessoa() {
+    }
 
     public String getNome() {
         return nome;
@@ -49,17 +51,9 @@ public abstract class Pessoa {
         this.cpf = cpf;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
     @Override
     public String toString() {
-        return  "\nNome: " + nome +
+        return "\nNome: " + nome +
                 "\nIdade: " + idade;
     }
 }

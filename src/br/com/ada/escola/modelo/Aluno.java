@@ -29,7 +29,7 @@ public class Aluno extends Pessoa {
     }
 
     public Aluno(String nome, int idade, String rg, String cpf, Endereco endereco, PaiOuResponsavel paiOuResponsavel) {
-        super(nome, idade, rg, cpf, endereco);
+        super(nome, idade, rg, cpf);
         this.paiOuResponsavel = paiOuResponsavel;
     }
 
