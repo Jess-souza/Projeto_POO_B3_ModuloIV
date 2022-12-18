@@ -36,21 +36,18 @@ public class TestEscola {
         );
         gerenteBancoDeDadosProfessor.retonarProfessor().forEach(System.out::println);
 
-
         //Pai
         Endereco enderecoMiguel = new Endereco("Rua Laranja", 25, "MG");
         PaiOuResponsavel miguel = new PaiOuResponsavel("Miguel Carlos", 45, "255.555", "888.888.888-88", enderecoMiguel);
         PaiOuResponsavel ana = new PaiOuResponsavel("Ana Maria", 50, "789.987", "159.753.789-65", enderecoGenerico);
 
-
         //Aluno
         Aluno joao = new Aluno("João Carlos", 10, "555.555", "058.974.532-22", enderecoMiguel, miguel);
-
         Aluno joana = new Aluno("Joana Maria", 11, "456.200", "852.654.741-55", enderecoGenerico, ana);
         Aluno larissa = new Aluno("Larissa Maria", 11, "753.654", "145.697.521-56", enderecoGenerico, ana);
 
         //Setores da escola
-        //RH
+        //Rh
         Rh recursosHumanos = new Rh();
         //Secretaria
         Secretaria secretaria = new Secretaria();
@@ -73,7 +70,6 @@ public class TestEscola {
         System.out.println(gerenteBancoDeDadosProfessor.retonarProfessor());
         System.out.println("|-----------------------------------------|");
         System.out.println(" ");
-
 
         //Lista de alunos matriculados
         System.out.println("|----------Alunos matriculados------------|");
